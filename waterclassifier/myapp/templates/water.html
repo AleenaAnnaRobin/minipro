@@ -1,0 +1,103 @@
+<html>
+<head>
+  <title>Water Classification</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+    background-image: url(https://images.unsplash.com/photo-1591203082535-3865e38b1ffe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: Felix titling;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Felix titling;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #result {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    font-display: green;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Water Classification</h1>
+    <form action="/water" method="post">
+     {% csrf_token %}
+    <div class="form-group">
+      <label for="pH">pH:</label>
+      <input type="text" id="pH" placeholder="Enter pH value">
+    </div>
+    <div class="form-group">
+      <label for="dissolvedOxygen">Dissolved Oxygen:</label>
+      <input type="text" id="dissolvedOxygen" placeholder="Enter dissolved oxygen value">
+    </div>
+    <div class="form-group"> 
+      <label for="temperature">Temperature:</label>
+      <input type="text" id="temperature" placeholder="Enter temperature value">
+    </div>
+    <div class="form-group">
+      <label for="conductivity">Conductivity:</label>
+      <input type="text" id="conductivity" placeholder="Enter conductivity value">
+    </div>
+    <div class="form-group">
+      <label for="turbidity">Turbidity:</label>
+      <input type="text" id="turbidity" placeholder="Enter turbidity value">
+    </div>
+    <div class="form-group">
+      <label for="TDS">Total Dissolved Solids (TDS):</label>
+      <input type="text" id="TDS" placeholder="Enter TDS value">
+    </div>
+    <div class="form-group">
+        <label for="chlorine">Chlorine:</label>
+        <input type="text" id="chlorine" placeholder="Enter chlorine value">
+      </div>
+      <button onclick="classifyWater()">Classify</button>
+      <div id="result"></div>
+      </form>
+    </div>
+  
+    <script src="script.js"></script>
+  </body>
+  </html>
+  
